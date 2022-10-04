@@ -12,6 +12,8 @@
 每个题目通过开头的[YAML front matter](https://help.obsidian.md/Advanced+topics/YAML+front+matter) 添加 `tag` ,  以此进行分类和聚合.
 
 ## 周赛列表
-* [第83场周赛](week-83/Readme.md)
-* [第84场周赛](week-84/Readme.md)
-* [第85场周赛](week-85/Readme.md)
+- [第83场周赛](week-83/Readme.md)
+- [第84场周赛](week-84/Readme.md)
+- [第85场周赛](week-85/Readme.md)
+- [第86场周赛](week-86/Readme.md)
+- [第87场周赛](week-87/Readme.md)
