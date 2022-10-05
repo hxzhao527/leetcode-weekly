@@ -16,6 +16,9 @@
 支持单周赛和双周赛.
 
 ### 转化html
+> [!warning]-
+> 需要在根目录的 `Readme` 中引用周赛对应的文件才能创建索引.
+
 使用工具[obsidianhtml](https://obsidian-html.github.io/) 将仓储转化为html, 然后利用[Github Actions](https://github.com/features/actions)发布到[Github Pages](https://pages.github.com/).
 
 #### 查看方式
@@ -23,3 +26,11 @@
 2. 页面下方有 `graph` 可以查看关系图
 3. 顶部导航支持搜索, 设置主题, 查看`tag`
 4. 题目详情内下方, 也有 `tag` 的链接
+
+## 周赛目录
+- [第83场周赛](./week-83/Readme.md)
+- [第84场周赛](./week-84/Readme.md)
+- [第85场周赛](./week-85/Readme.md)
+- [第86场周赛](./week-86/Readme.md)
+- [第87场周赛](./week-87/Readme.md)
+- [第88场周赛](./week-88/Readme.md)
