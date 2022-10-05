@@ -83,7 +83,7 @@ site_name: 'Leetcode/Week'
 
 # Use when deploying to https://mydomain.com/html_prefix/ instead of https://mydomain.com/
 # use '/html_prefix' (prepend slash, no slash at the end)
-html_url_prefix: 'leetcode-weekly'
+html_url_prefix: '/leetcode-weekly'
 
 # Provide the fullpath to a template file to use instead of standard template. 
 # Note that this file must contain at least "{content}" somewhere in the page.
