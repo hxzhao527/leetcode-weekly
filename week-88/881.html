@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+        <head>
+                <!-- Page information -->
+                <meta charset="UTF-8" />
+                <meta name="node_id" content="881">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <link rel="shortcut icon" href="/favicon.ico" />
+
+                <!-- Set title -->
+                <title>Leetcode/Week</title>
+
+                <!-- Includes -->
+                
+<script src="/leetcode-weekly/obs.html/static/obsidian_core.js"></script>
+<script src="/leetcode-weekly/obs.html/static/encoding.js"></script>
+<link rel="stylesheet" href="/leetcode-weekly/obs.html/static/master.css" />
+<script src="/leetcode-weekly/obs.html/static/mermaid.9.0.1.min.js"></script>
+<script>
+  MathJax = {
+    loader: {
+      load: [
+        '[tex]/action',
+        'output/chtml',
+        '[tex]/centernot'
+      ]
+    },
+    tex: {
+      inlineMath: [ ["\\(","\\)"] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true,
+      processEnvironments: true,
+      packages: {'[+]': ['centernot']}
+    }
+  };
+</script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+<script src="/leetcode-weekly/obs.html/static/flexsearch.bundle.js"></script>
+<script src="/leetcode-weekly/obs.html/static/pako.js"></script>
+<script src="/leetcode-weekly/obs.html/static/search.js"></script>
+<script src="/leetcode-weekly/obs.html/static/dirtree.js"></script>
+
+
+                <!-- Onload tweaks -->
+                <script>
+                        const CURRENT_NODE = '881';
+                        const HTML_URL_PREFIX = '/leetcode-weekly';
+                        const PAGE_DEPTH = 1;
+                </script>
+        </head>
+
+<body class="theme-obs-light">
+        <div id="antiflash" style="display: none;"></div>
+        <script>
+                document.getElementById('antiflash').style.display = 'block';
+        </script>
+        <div id="search-master-div">
+    <div id="search-slab" king_ramses="return the slaaab">
+            <div id="search-controls">
+                    <input id="search_string" placeholder="Type to search notes" type="text" />
+                    <div class="tooltip" style="display: none;">
+                        <input type="checkbox" id="hard_search" name="hard" />
+                        <span class="tooltiptext">Hard search (require exact match)</span>
+                    </div>
+                    <div id="search-results-box">
+                        <div id="search-results"></div>
+                    </div>
+                    <div id="search-instructions">
+                        <div class="prompt-instruction">
+                                <b>esc</b> to dismiss
+                        </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("search-master-div").addEventListener('click', e => {
+            if(e.target !== e.currentTarget){
+                    return
+            }
+            toggle_id('search-master-div');
+    })
+    document.getElementById("search_string").addEventListener("input", function(event) {
+            setTimeout( () =>run_search('search_string', 'hard_search'), 100 );
+    }); 
+    document.getElementById("hard_search").addEventListener("click", function(event) {
+            setTimeout( () =>run_search('search_string', 'hard_search'), 100 );
+    });
+
+    window.addEventListener('keydown', e => {
+        if((e.key=='Escape'||e.key=='Esc'||e.keyCode==27)){
+            toggle_id('search-master-div');
+            return false;
+        } 
+    }, true);
+
+    function click_list_link(element){
+        element.parentElement.getElementsByTagName('a')[0].click()
+    }
+</script>
+
+        <div id="page_holder" class="flex_col">
+                <div id="header" class="header">
+                        <div id="header_flex" class="flex_row">
+                                <a href="/leetcode-weekly/index.html" id="homelink" title="Clear screen and go to homepage">Leetcode/Week</a>
+                                <div id="menu_toggle_button" class="navbar-button requires_js" onclick="toggle_menu()">
+                                        ≡
+                                </div>
+                                <div id="navbar" class="navbar requires_js">
+                                        
+                                        <div class="icon-tray">
+                                                <div id="theme-button" class="theme-button requires_js" title="Change theme" onclick="toggle_theme_popup(this)">
+    T
+</div>
+<script>
+    function toggle_theme_popup(el){
+        // make theme button show that it's active by adding the .active class
+        toggle(el);
+
+        // show the theme selector
+        toggle_id('theme-popup')
+
+        let h2 = document.getElementById('header2')
+        if (h2){
+            let pu = document.getElementById('header2').getElementsByClassName('popup')[0];
+            toggle(pu);
+        }
+    }
+
+    function disable_theme_popup(){
+        disable_id('theme-button');
+
+        // show the theme selector
+        disable_id('theme-popup')
+
+        let h2 = document.getElementById('header2')
+        if (h2){
+            let pu = document.getElementById('header2').getElementsByClassName('popup')[0];
+            disable(pu);
+        }
+    }
+</script>
+                                                        <div onclick="openSearch()" class="theme-button requires_js">
+                <img src = "/leetcode-weekly/obs.html/static/search.svg" alt="Search notes" title="Search notes" style="margin: 4px;"/>
+        </div>
+        <script>
+                function openSearch(){
+                        // toggle search popup and continue with extra code if it is enabled this time
+                        if (toggle_id('search-master-div')){
+                                // clear input and put focus on it so that we can start typing immediately
+                                let ss = document.getElementById('search_string');
+                                ss.value = '';
+                                ss.focus()
+                                ss.select()
+                        }
+                }
+        </script>
+                                                
+                                                        <div >
+            <a id="dirtree_link" class="system-link" href="/leetcode-weekly/obs.html/dir_index.html" title="View directory tree">
+                    <img src = "/leetcode-weekly/obs.html/static/dirtree.svg" style="width: 12px; padding: 4px;" alt="Directory tree link"/>
+            </a>
+        </div>
+                                                <div>
+    <a href="/leetcode-weekly/obs.html/tags/index.html" title="Open tag view">
+            <img src = "/leetcode-weekly/obs.html/static/hashtag.svg" alt="RSS Feed link" style="width: 24px; margin-left: -2px; margin-top: -2px;"/>
+    </a>
+</div>
+                                                
+                                        </div>
+                                        <div style="display: flex; flex-direction:column">
+                                                <div id="left_pane_toggle_nav" class="left_pane_toggle_nav">Toggle Directory Tree Pane</div>
+                                                <div id="right_pane_toggle_nav" class="right_pane_toggle_nav">Toggle Table of Contents Pane</div>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="popup" id="theme-popup">
+    <label for="cars">Theme </label>
+
+    <select name="theme" id="theme" onchange="set_theme(this.value)">
+      <option value="light">light</option>
+      <option value="obs-light" selected="selected">obsidian-light</option>
+      <option value="obs-dark">obsidian-dark</option>
+    </select> 
+</div>
+                </div>
+                <div class="flex_row">
+                        <div id="left_pane" class="left_pane active">
+                                <div id="left_pane_fold_header" class="left_pane_fold_header fold_header">x</div>
+                                <div id="left_pane_content" class="left_pane_content">
+                                        <button id="folder-1" class="dir-button folder_note " href="/leetcode-weekly/week-83/Readme.html" onclick="open_folder_note(this)"><div class="fn_pf"></div>week-83</button>
+<div id="folder-container-1" class="dir-container requires_js " path="/leetcode-weekly/week-83">
+	<ul class="dir-list">
+		<li><a class="" href="/leetcode-weekly/week-83/828.html"  >828</a></li>
+		<li><a class="" href="/leetcode-weekly/week-83/829.html"  >829</a></li>
+		<li><a class="" href="/leetcode-weekly/week-83/830.html"  >830</a></li>
+		<li><a class="" href="/leetcode-weekly/week-83/831.html"  >831</a></li>
+	</ul>
+</div>
+<button id="folder-2" class="dir-button folder_note " href="/leetcode-weekly/week-84/Readme.html" onclick="open_folder_note(this)"><div class="fn_pf"></div>week-84</button>
+<div id="folder-container-2" class="dir-container requires_js " path="/leetcode-weekly/week-84">
+	<ul class="dir-list">
+		<li><a class="" href="/leetcode-weekly/week-84/832.html"  >832</a></li>
+		<li><a class="" href="/leetcode-weekly/week-84/833.html"  >833</a></li>
+		<li><a class="" href="/leetcode-weekly/week-84/834.html"  >834</a></li>
+		<li><a class="" href="/leetcode-weekly/week-84/835.html"  >835</a></li>
+	</ul>
+</div>
+<button id="folder-3" class="dir-button folder_note " href="/leetcode-weekly/week-85/Readme.html" onclick="open_folder_note(this)"><div class="fn_pf"></div>week-85</button>
+<div id="folder-container-3" class="dir-container requires_js " path="/leetcode-weekly/week-85">
+	<ul class="dir-list">
+		<li><a class="" href="/leetcode-weekly/week-85/836.html"  >836</a></li>
+		<li><a class="" href="/leetcode-weekly/week-85/837.html"  >837</a></li>
+		<li><a class="" href="/leetcode-weekly/week-85/838.html"  >838</a></li>
+		<li><a class="" href="/leetcode-weekly/week-85/839.html"  >839</a></li>
+	</ul>
+</div>
+<button id="folder-4" class="dir-button folder_note " href="/leetcode-weekly/week-86/Readme.html" onclick="open_folder_note(this)"><div class="fn_pf"></div>week-86</button>
+<div id="folder-container-4" class="dir-container requires_js " path="/leetcode-weekly/week-86">
+	<ul class="dir-list">
+		<li><a class="" href="/leetcode-weekly/week-86/870.html"  >870</a></li>
+		<li><a class="" href="/leetcode-weekly/week-86/871.html"  >871</a></li>
+		<li><a class="" href="/leetcode-weekly/week-86/872.html"  >872</a></li>
+		<li><a class="" href="/leetcode-weekly/week-86/873.html"  >873</a></li>
+	</ul>
+</div>
+<button id="folder-5" class="dir-button folder_note " href="/leetcode-weekly/week-87/Readme.html" onclick="open_folder_note(this)"><div class="fn_pf"></div>week-87</button>
+<div id="folder-container-5" class="dir-container requires_js " path="/leetcode-weekly/week-87">
+	<ul class="dir-list">
+		<li><a class="" href="/leetcode-weekly/week-87/874.html"  >874</a></li>
+		<li><a class="" href="/leetcode-weekly/week-87/875.html"  >875</a></li>
+		<li><a class="" href="/leetcode-weekly/week-87/876.html"  >876</a></li>
+		<li><a class="" href="/leetcode-weekly/week-87/877.html"  >877</a></li>
+	</ul>
+</div>
+<button id="folder-6" class="dir-button folder_note " href="/leetcode-weekly/week-88/Readme.html" onclick="open_folder_note(this)"><div class="fn_pf"></div>week-88</button>
+<div id="folder-container-6" class="dir-container requires_js active" path="/leetcode-weekly/week-88">
+	<ul class="dir-list">
+		<li><a class="" href="/leetcode-weekly/week-88/878.html"  >878</a></li>
+		<li><a class="" href="/leetcode-weekly/week-88/879.html"  >879</a></li>
+		<li><a class="" href="/leetcode-weekly/week-88/880.html"  >880</a></li>
+		<li><a class="" href="/leetcode-weekly/week-88/881.html"  >881</a></li>
+	</ul>
+</div>
+<ul class="dir-list">
+	<li><a class="" href="/leetcode-weekly/index.html"  >index</a></li>
+</ul>
+
+                                </div>
+                        </div>
+                        <div class="container">
+                                
+                    <div style="width:100%; text-align: right;display: block;margin: 0.5rem;">
+                        <div style="flex:1;display: none;"></div>
+                        <div class="breadcrumbs" style="flex:1 ;padding: 0.5rem; width: fit-content;display: inline;border-radius: 0.2rem;">
+                            <a href="/leetcode-weekly/" style="color: rgb(var(--normal-text-color));">Home</a> / <span style="color: #666;">week-88</span> / <a href="/leetcode-weekly/week-88/881.html" >881</a>
+                        </div>
+                    </div>
+<h1 id="_1">信息</h1>
+<div class="toc">
+<ul>
+<li><a href="#_1" class="anchor-link">信息</a></li>
+<li><a href="#_2" class="anchor-link">题解</a><ul>
+<li><a href="#1-" class="anchor-link">解法1: 拓扑排序 - 啰唆</a></li>
+<li><a href="#2-" class="anchor-link">解法2: 拓扑排序 - 精简</a></li>
+<li><a href="#3-dfs" class="anchor-link">解法3: DFS</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<ul>
+<li>题目: <a href="https://leetcode.cn/problems/loud-and-rich/" class="external-link">881.喧闹和富有</a>   </li>
+<li>标签: 拓扑排序, DFS   </li>
+</ul>
+<h1 id="_2">题解</h1>
+<h3 id="1-">解法1: 拓扑排序 - 啰唆</h3>
+<ol>
+<li>
+<p><code>[a, b]</code> 表示 <code>a</code> 比 <code>b</code>更有钱.   </p>
+<ul>
+<li>最后求不比 <code>i</code> 钱少的中, 最安静的, 全局最有钱的答案对应其自身.   </li>
+<li>记<code>[a, b]</code>为<code>b -&gt; a</code>, 则找到哪个出度为0, 则对应为最有钱的.   </li>
+<li>
+<p>处理掉这个最有钱的后, 将<code>b</code>的出度减一,    </p>
+</li>
+<li>
+<p>这时如果<code>b</code>的出度变为了0, 那么<code>b</code>就变为了此时最富的, 再重复处理   </p>
+</li>
+<li>
+<p>处理的过程: 看是不是之前有比它更有钱的,    </p>
+</li>
+<li>
+<p>如果有, 从中找出最安静的那个   </p>
+<ul>
+<li>记得非直接连接的, 需要利用已有的答案   </li>
+</ul>
+</li>
+<li>如果没有, 那它自身就是   </li>
+</ul>
+</li>
+</ol>
+<div class="codehilite"><pre><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">loud_and_rich</span><span class="p">(</span><span class="n">richer</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">quiet</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">collections</span>::<span class="p">{</span><span class="n">HashMap</span><span class="p">,</span><span class="w"> </span><span class="n">HashSet</span><span class="p">,</span><span class="w"> </span><span class="n">VecDeque</span><span class="p">};</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">quiet</span><span class="p">.</span><span class="n">len</span><span class="p">()];</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">oout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HashMap</span>::<span class="n">new</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">iin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HashMap</span>::<span class="n">new</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">rich</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">richer</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="p">(</span><span class="n">to</span><span class="p">,</span><span class="w"> </span><span class="n">from</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">rich</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">usize</span><span class="p">,</span><span class="w"> </span><span class="n">rich</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">usize</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">out</span><span class="p">[</span><span class="n">from</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">iin</span><span class="p">.</span><span class="n">entry</span><span class="p">(</span><span class="n">to</span><span class="p">).</span><span class="n">or_insert</span><span class="p">(</span><span class="n">HashSet</span>::<span class="n">new</span><span class="p">()).</span><span class="n">insert</span><span class="p">(</span><span class="n">from</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">oout</span><span class="p">.</span><span class="n">entry</span><span class="p">(</span><span class="n">from</span><span class="p">).</span><span class="n">or_insert</span><span class="p">(</span><span class="n">HashSet</span>::<span class="n">new</span><span class="p">()).</span><span class="n">insert</span><span class="p">(</span><span class="n">to</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">queue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VecDeque</span>::<span class="n">new</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">idx</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">cnt</span><span class="p">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">out</span><span class="p">.</span><span class="n">iter</span><span class="p">().</span><span class="n">enumerate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">cnt</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">queue</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">idx</span><span class="p">);</span><span class="w"> </span><span class="c1">// 这点起始就是最富</span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">quiet</span><span class="p">.</span><span class="n">len</span><span class="p">()];</span><span class="w"></span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="o">!</span><span class="n">queue</span><span class="p">.</span><span class="n">is_empty</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">sz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="n">len</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">..</span><span class="n">sz</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="n">rich</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="n">pop_front</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// rich 是当前最富的, 但不一定是全局最富的,</span>
+<span class="w">            </span><span class="c1">// 因此检查其指向谁, 然后取下一个节点, 和其ans中的最安静的那个</span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="p">(</span><span class="k">mut</span><span class="w"> </span><span class="n">most</span><span class="p">,</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">qu</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">rich</span><span class="p">,</span><span class="w"> </span><span class="n">quiet</span><span class="p">[</span><span class="n">rich</span><span class="p">]);</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="o">&amp;</span><span class="n">node</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">oout</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="o">&amp;</span><span class="n">rich</span><span class="p">).</span><span class="n">unwrap_or</span><span class="p">(</span><span class="o">&amp;</span><span class="n">HashSet</span>::<span class="n">new</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="n">quiet</span><span class="p">[</span><span class="n">node</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">qu</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="n">most</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">;</span><span class="w"></span>
+<span class="w">                    </span><span class="n">qu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">quiet</span><span class="p">[</span><span class="n">node</span><span class="p">];</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">                </span><span class="kd">let</span><span class="w"> </span><span class="n">node_ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ans</span><span class="p">[</span><span class="n">node</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">usize</span><span class="p">;</span><span class="w"></span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="n">quiet</span><span class="p">[</span><span class="n">node_ans</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">qu</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="n">most</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node_ans</span><span class="p">;</span><span class="w"></span>
+<span class="w">                    </span><span class="n">qu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">quiet</span><span class="p">[</span><span class="n">node_ans</span><span class="p">];</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="n">ans</span><span class="p">[</span><span class="n">rich</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">most</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">i32</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">            </span><span class="c1">// 将指向 rich 的节点, 出度都减1</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="o">&amp;</span><span class="n">node</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">iin</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="o">&amp;</span><span class="n">rich</span><span class="p">).</span><span class="n">unwrap_or</span><span class="p">(</span><span class="o">&amp;</span><span class="n">HashSet</span>::<span class="n">new</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">out</span><span class="p">[</span><span class="n">node</span><span class="p">]</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="n">out</span><span class="p">[</span><span class="n">node</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="n">queue</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">node</span><span class="p">);</span><span class="w"> </span><span class="c1">// 出度为0, 下一轮的最富</span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">ans</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+
+<h3 id="2-">解法2: 拓扑排序 - 精简</h3>
+<div class="callout callout-info active" rasa="1">
+<div class="callout-title">
+<div class="callout-title-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="callout-icon"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+</div>
+<div class="callout-title-name">Info
+</div>
+</div>
+<div class="callout-content">
+<ol>
+<li>通过 <code>graph</code> 记录谁比 <code>i</code> 更穷(直接)   </li>
+<li>穷的那个, 记录下有几个比自己更富有, 即入度   </li>
+<li>如果入度为0, 则这个节点为"最"富有的   </li>
+<li>将入度为0的节点存入节点, 逐个处理   </li>
+<li>全局最富有的节点, 其答案就是其自身   </li>
+<li>计算出相对富有后, 更新比它穷的节点, 可选项有:   </li>
+<li>穷节点自身   </li>
+<li>富节点的答案   </li>
+<li>但相对穷的节点, 可能并不止一个相对富的节点,    </li>
+<li>其入度减1, 为0之后升级为"最"富有的节点, 存入队列 <br />
+</li>
+</ol>
+</div>
+</div>
+<div class="codehilite"><pre><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">loud_and_rich</span><span class="p">(</span><span class="n">richer</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">quiet</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">collections</span>::<span class="n">VecDeque</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">graph</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span><span class="fm">vec!</span><span class="p">[];</span><span class="w"> </span><span class="n">quiet</span><span class="p">.</span><span class="n">len</span><span class="p">()];</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">in_deg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">quiet</span><span class="p">.</span><span class="n">len</span><span class="p">()];</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">richer</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="p">(</span><span class="n">rich</span><span class="p">,</span><span class="w"> </span><span class="n">poor</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">usize</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">usize</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">graph</span><span class="p">[</span><span class="n">rich</span><span class="p">].</span><span class="n">push</span><span class="p">(</span><span class="n">poor</span><span class="p">);</span><span class="w"> </span><span class="c1">// 记录谁比它穷</span>
+<span class="w">        </span><span class="n">in_deg</span><span class="p">[</span><span class="n">poor</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// 入度为0的, 为最富的</span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="n">quiet</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">i32</span><span class="p">).</span><span class="n">collect</span>::<span class="o">&lt;</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;&gt;</span><span class="p">();</span><span class="w"> </span><span class="c1">// 先用自身填位</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">queue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VecDeque</span>::<span class="n">new</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">idx</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ii</span><span class="p">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">in_deg</span><span class="p">.</span><span class="n">iter</span><span class="p">().</span><span class="n">enumerate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">ii</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">queue</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">idx</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="o">!</span><span class="n">queue</span><span class="p">.</span><span class="n">is_empty</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">rich</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="n">pop_front</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// 先计算更富有的, 全局最富有的, 其最终答案就是它自身</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">ans_rich</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ans</span><span class="p">[</span><span class="n">rich</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">usize</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="o">&amp;</span><span class="n">poor</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">graph</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">rich</span><span class="p">).</span><span class="n">unwrap</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// 计算出富有的之后, 更新比它穷的</span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="n">ans_poor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ans</span><span class="p">[</span><span class="n">poor</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">usize</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">quiet</span><span class="p">[</span><span class="n">ans_rich</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">quiet</span><span class="p">[</span><span class="n">ans_poor</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">ans</span><span class="p">[</span><span class="n">poor</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ans_rich</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">i32</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// 从这个 rich 到 这个 poor 已经检查过了</span>
+<span class="w">            </span><span class="c1">// 后面不用在检查了, 因此对poor来说, 入度减1</span>
+<span class="w">            </span><span class="n">in_deg</span><span class="p">[</span><span class="n">poor</span><span class="p">]</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">in_deg</span><span class="p">[</span><span class="n">poor</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="c1">// 这时poor已经没有入度, 因此升级为最富有的</span>
+<span class="w">                </span><span class="n">queue</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">poor</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">ans</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+
+<h3 id="3-dfs">解法3: DFS</h3>
+<div class="callout callout-info active" rasa="1">
+<div class="callout-title">
+<div class="callout-title-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="callout-icon"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+</div>
+<div class="callout-title-name">Info
+</div>
+</div>
+<div class="callout-content">
+<ol>
+<li>通过 <code>graph</code> 记录谁比 <code>i</code> 更富有(直接)   </li>
+<li>通过DFS逐层深入, 直到最富有   </li>
+<li>全局最富有, 则最终答案就是它自己   </li>
+<li>相对 <code>i</code> 富有的得到答案后, 更新 <code>i</code> 对应的答案, 可能的答案有   </li>
+<li>自身 <code>i</code>   </li>
+<li>相对 <code>i</code> 富有的节点的答案   </li>
+<li>由于相对 <code>i</code> 富有(直接)的节点可能不止一个, 因此需要都检查一下 <br />
+</li>
+</ol>
+</div>
+</div>
+<div class="codehilite"><pre><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">loud_and_rich</span><span class="p">(</span><span class="n">richer</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">quiet</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">graph</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span><span class="fm">vec!</span><span class="p">[];</span><span class="w"> </span><span class="n">quiet</span><span class="p">.</span><span class="n">len</span><span class="p">()];</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">richer</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="p">(</span><span class="n">to</span><span class="p">,</span><span class="w"> </span><span class="n">from</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">usize</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">usize</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">graph</span><span class="p">[</span><span class="n">from</span><span class="p">].</span><span class="n">push</span><span class="p">(</span><span class="n">to</span><span class="p">);</span><span class="w"> </span><span class="c1">// to 是 比 from 富有的</span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">fn</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">ans</span>: <span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">graph</span>: <span class="kp">&amp;</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">usize</span><span class="o">&gt;&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">quiet</span>: <span class="kp">&amp;</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span>: <span class="kt">usize</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">ans</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// 已经判出结果的, 不用重复判</span>
+<span class="w">            </span><span class="c1">// 不论结果是啥, 因为dfs后有更新的逻辑</span>
+<span class="w">            </span><span class="c1">// 所以只要有结果, 那就是最终答案</span>
+<span class="w">            </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="n">ans</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">i32</span><span class="p">;</span><span class="w"> </span><span class="c1">// 用自身填位先</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="o">&amp;</span><span class="n">y</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">graph</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">).</span><span class="n">unwrap</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">dfs</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span><span class="w"> </span><span class="n">graph</span><span class="p">,</span><span class="w"> </span><span class="n">quiet</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// 比x富有的答案</span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="n">ans_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ans</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">usize</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// 比x富有的的y的最终答案,</span>
+<span class="w">            </span><span class="c1">// 由于是先执行的dfs, 因此这里已经拿到相对富有的y的最终答案</span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="n">ans_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ans</span><span class="p">[</span><span class="n">y</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">usize</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">quiet</span><span class="p">[</span><span class="n">ans_y</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">quiet</span><span class="p">[</span><span class="n">ans_x</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">ans</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ans</span><span class="p">[</span><span class="n">y</span><span class="p">];</span><span class="w"> </span><span class="c1">// 比x富有的y, 有比当前结果更安静的</span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">quiet</span><span class="p">.</span><span class="n">len</span><span class="p">()];</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">..</span><span class="n">quiet</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// 都尝试一遍, 因为不定哪个最富, 哪个最穷</span>
+<span class="w">        </span><span class="n">dfs</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">ans</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">graph</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">quiet</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">ans</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<div class="note-footer">
+<div class="backlinks">
+<h2>Backlinks</h2>
+<ul>
+	<li><a class="backlink" href="/leetcode-weekly/week-88/Readme.html">week-88/Readme</a></li>
+</ul>
+</div>
+
+<div class="tags">
+<h2>Tags</h2>
+<ul>
+	<li><a class="backlink" href="/leetcode-weekly/obs.html/tags/拓扑排序/index.html">拓扑排序</a></li>
+	<li><a class="backlink" href="/leetcode-weekly/obs.html/tags/DFS/index.html">DFS</a></li>
+</ul>
+</div>
+
+</div>
+
+                                <!-- end content -->
+                        </div>
+                        <div class="container_filler">
+                        </div>
+                        <div id="right_pane" class="right_pane active">
+                                <div id="right_pane_fold_header" class="right_pane_fold_header fold_header">x</div>
+                                <div id="right_pane_content" class="right_pane_content">
+                                        
+                                </div>
+                        </div>
+                </div>
+        </div>
+
+        <script>
+                function handle_toggle_side_bar(e){
+                        let header;
+                        let pane; 
+                        let target = e.target
+
+                        // switch out the navbar button click for a header click
+                        if (target.id == 'left_pane_toggle_nav'){
+                                target = document.getElementById('left_pane_fold_header')
+                        }
+                        else if (target.id == 'right_pane_toggle_nav'){
+                                target = document.getElementById('right_pane_fold_header')
+                        }
+
+                        // get header and pane
+                        if (target.classList.contains('fold_header')) {
+                                header = target;
+                                pane = target.parentElement;
+                        }
+                        else {
+                                pane = target;
+                                header = target.getElementsByClassName('fold_header')[0];
+                        }
+                        toggle_side_bar(pane, header, true)
+                        e.stopPropagation();
+                }
+                function handle_toggle_side_bar_button(e){
+                        document.getElementById('menu_toggle_button').click()
+                        handle_toggle_side_bar(e);
+                }
+
+                function toggle_side_bar(pane, header, save) {
+                        let active = (pane.classList.contains('active'))
+                        if (active){
+                                disable_side_bar(pane, header, save);
+                        }
+                        else {
+                                enable_side_bar(pane, header, save);
+                        }
+                }
+                function enable_side_bar(pane, header, save){
+                        pane.classList.add('active');
+                        pane.removeEventListener('click', handle_toggle_side_bar);
+                        header.addEventListener('click', handle_toggle_side_bar);
+                        set_correct_header_symbol(header);
+                        if (save){ save_panel_folding_state(header, true) }
+                }
+                function disable_side_bar(pane, header, save){
+                        pane.classList.remove('active');
+                        pane.addEventListener('click', handle_toggle_side_bar);
+                        header.removeEventListener('click', handle_toggle_side_bar);
+                        set_correct_header_symbol(header);
+                        if (save){ save_panel_folding_state(header, false) }
+                }
+                function set_correct_header_symbol(header){
+                        let pane = header.parentElement;
+                        let symbol = [['>', '<'],['<', '>']]
+                        symbol = symbol[Number(header.classList.contains('right_pane_fold_header'))][Number(pane.classList.contains('active'))];
+                        console.log(symbol);
+                        header.innerHTML = symbol
+                        return header;
+                }
+                function panel_folding_get_panel_name(header){
+                        return ['left', 'right'][Number(header.classList.contains('right_pane_fold_header'))]
+                }
+                function save_panel_folding_state(header, active){
+                        localStorage.setItem('pane_folding_state_'+panel_folding_get_panel_name(header), Number(active));
+                }
+                function load_panel_folding_state(panel_name){
+                        val = localStorage.getItem('pane_folding_state_'+panel_name)
+                        if (!val){ return {'exists': false, 'value': null}}
+                        return {'exists': true, 'value': Boolean(Number(val))}
+                }
+                function set_pane_folding_start(left_header, right_header){
+                        // small screen = closed
+                        let right_pane_enabled = true;
+                        let left_pane_enabled = true;
+                        let w = window.visualViewport.width
+                        if (w < 1000){
+                                left_pane_enabled = false
+                        }
+                        if (w < 800){
+                                right_pane_enabled = false
+                        }
+
+                        // get saved values if present
+                        let rval = load_panel_folding_state('right')
+                        if (rval['exists']){
+                                right_pane_enabled = rval['value']
+                        }
+                        let lval = load_panel_folding_state('left')
+                        if (lval['exists']){
+                                left_pane_enabled = lval['value']
+                        }
+
+                        // default = enabled, so we only need to disable
+                        if (!left_pane_enabled){
+                                disable_side_bar(document.getElementById('left_pane'), document.getElementById('left_pane_fold_header'))
+                        }
+                        if (!right_pane_enabled){
+                                disable_side_bar(document.getElementById('right_pane'), document.getElementById('right_pane_fold_header'))
+                        }
+                }
+
+                function init_pane_folding(header){
+                        set_correct_header_symbol(header);
+                        header.addEventListener('click', handle_toggle_side_bar);
+                }
+                
+                
+                set_pane_folding_start()
+                init_pane_folding(document.getElementById('left_pane_fold_header'));
+                init_pane_folding(document.getElementById('right_pane_fold_header'));
+
+                document.getElementById('left_pane_toggle_nav').addEventListener('click', handle_toggle_side_bar_button);
+                document.getElementById('right_pane_toggle_nav').addEventListener('click', handle_toggle_side_bar_button);
+        </script>
+
+        <script src="/leetcode-weekly/obs.html/static/load_dirtree_footer.js" type="text/javascript"></script>
+
+        
+
+
+
+
+</body>
+</html>
