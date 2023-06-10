@@ -34,3 +34,6 @@
 - [第86场周赛](./week-86/Readme.md)
 - [第87场周赛](./week-87/Readme.md)
 - [第88场周赛](./week-88/Readme.md)
+- [第89场周赛](./week-89/Readme.md)
+- [第90场周赛](./week-90/Readme.md)
+- [第91场周赛](./week-91/Readme.md)
